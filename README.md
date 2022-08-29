@@ -1,2 +1,2 @@
 # todoList
-Todo daily
+Todo daily app with reactjs
