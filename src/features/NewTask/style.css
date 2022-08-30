@@ -1,0 +1,39 @@
+.task {
+  padding: 10px 20px;
+}
+
+.task .task-heading {
+  text-align: center;
+  margin: 0 0 40px 0;
+}
+.task .task-body {
+}
+
+.form {
+}
+
+.form .form-control {
+}
+
+.form .form-control:not(:last-child) {
+  margin-bottom: 18px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.box .box-item {
+  width: 45%;
+}
+
+/* .box .box-item:not(:last-child) {
+    margin-right: 10px;
+} */

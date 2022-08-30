@@ -1,5 +1,29 @@
 .btn {
   display: inline-block;
   border: 1px solid #333;
-  padding: 10px 20px;
+  padding: 8px 24px;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-green {
+  background-color: #5cb85c;
+}
+
+.btn-blue {
+  background-color: #00bcd4;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+}
+
+.btn-green,
+.btn-blue,
+.btn-danger {
+  color: #fff;
 }

@@ -1,0 +1,15 @@
+.textarea-default {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea-default label {
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 0 0 8px 0;
+}
+
+.textarea-default textarea {
+  padding: 8px 16px;
+  border: 1px solid #333;
+}

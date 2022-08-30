@@ -1,0 +1,27 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #333;
+  padding: 8px 20px;
+}
+
+.card .card-head {
+  display: flex;
+  align-items: center;
+}
+.card .card-head span {
+  margin-left: 6px;
+}
+.card .card-action {
+}
+
+.card .card-action > .btn:not(:last-child) {
+  margin-right: 12px;
+}
+
+.card-form-wrap {
+  border: 1px solid #333;
+  border-top: 0;
+  padding: 20px;
+}

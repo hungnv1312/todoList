@@ -1,0 +1,38 @@
+.App {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.container {
+  width: 1140px;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container > div {
+  flex: 1 1 50%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+input:focus {
+  outline: none;
+}

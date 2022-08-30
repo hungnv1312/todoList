@@ -1,0 +1,25 @@
+.checkbox-default[type="checkbox"] {
+  background-color: #fff;
+  appearance: none;
+  margin: 0;
+  color: #333;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #333;
+  position: relative;
+
+}
+
+.checkbox-default[type="checkbox"]::before {
+  content: "\2714 \fe0e";
+  position: absolute;
+  font-size: 28px;
+  right: -5px;
+  bottom: 0;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+}
+
+.checkbox-default[type="checkbox"]:checked::before {
+  transform: scale(1);
+}

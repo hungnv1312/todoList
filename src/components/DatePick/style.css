@@ -1,0 +1,37 @@
+.date-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-wrap label {
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 0 0 8px 0;
+}
+
+.date-wrap .date-picker-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
+.date-wrap .date-picker-wrap .date-picker {
+  overflow: hidden;
+  width: 100%;
+  font-size: 14px;
+  padding-left: 6px;
+  color: #8d8d8d;
+  border: 0;
+  margin: 0;
+  padding: 0 0 0 24px;
+}
+
+.date-wrap .date-picker-wrap .date-icon {
+  border-left: 1px solid #333;
+  padding: 6px;
+}
+
+.react-datepicker__input-container {
+  overflow: hidden;
+}
