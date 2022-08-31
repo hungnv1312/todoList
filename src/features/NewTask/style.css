@@ -1,5 +1,7 @@
 .task {
   padding: 10px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .task .task-heading {

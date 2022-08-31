@@ -15,7 +15,7 @@ const NewTask = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState(new Date());
-  const [piority, setPiority] = useState(null);
+  const [piority, setPiority] = useState("Normal");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +30,7 @@ const NewTask = () => {
       description,
       dueDate: convertToTimestamp,
       piority,
+      completed: false,
     };
     // console.log(payload);
     dispatch(addNewTask(payload));
@@ -62,7 +63,7 @@ const NewTask = () => {
                 <Select
                   onChange={(v) => setPiority(v)}
                   label="Piority"
-                  defaultValue="Normal"
+                  defaultValue={piority}
                   options={["Low", "Normal", "High"]}
                 />
               </div>

@@ -16,7 +16,7 @@ export const removeTask = (id) => ({
   id,
 });
 
-export const searchTitle = (payload) => ({
-  type: TYPE.SEARCH_TITLE,
+export const toggleBulkAction = (payload) => ({
+  type: TYPE.BULK_ACTION,
   payload,
 });

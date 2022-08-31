@@ -4,11 +4,18 @@ import { CheckBox } from "../CheckBox";
 
 import "./style.css";
 
-const CardItem = ({ title, checkType, detailAction, removeAction }) => {
+const CardItem = ({
+  title,
+  completed,
+  checkProps,
+  detailAction,
+  removeAction,
+}) => {
   return (
     <div className="card">
       <div className="card-head">
-        <CheckBox checked={checkType} /> <span>{title}</span>
+        <CheckBox checked={completed} {...checkProps} />{" "}
+        <span>{title}</span>
       </div>
       <div className="card-action">
         <Button className="btn btn-blue" onClick={detailAction}>

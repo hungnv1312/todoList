@@ -11,7 +11,7 @@ export const initState = {
       piority: "Normal",
     },
   ],
-  searchTitle: "",
+  bulkAction: false,
 };
 
 const todoReducer = (state, action) => {
@@ -22,11 +22,33 @@ const todoReducer = (state, action) => {
         todoList: [...state.todoList, action.payload],
       };
     case TYPE.UPDATE_TASK:
-      return;
+      // const index = state.todoList.findIndex((todo) => todo.id === action.id);
+
+      return {
+        ...state,
+        todoList: state.todoList.map((todo) => {
+          if (todo.id == action.id) {
+            return {
+              ...todo,
+              title: action.payload.title,
+              description: action.payload.description,
+              dueDate: action.payload.dueDate,
+              piority: action.payload.piority,
+            };
+          }
+          return todo;
+        }),
+      };
     case TYPE.REMOVE_TASK:
-      return;
-    case TYPE.SEARCH_TITLE:
-      return;
+      return {
+        ...state,
+        todoList: state.todoList.filter(({ id }) => id !== action.id),
+      };
+    case TYPE.BULK_ACTION:
+      return {
+        ...state,
+        bulkAction: action.payload,
+      };
     default:
       return state;
   }
