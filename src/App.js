@@ -4,10 +4,10 @@ import { DatePick } from "./components/DatePick";
 import { Select } from "./components/Select";
 import { Textarea } from "./components/Textarea";
 import { Input } from "./components/Input";
+import { NewTask } from "./features/NewTask";
+import { TodoList } from "./features/TodoList";
 
 import "./common.css";
-import { NewTask } from "./features/NewTask";
-import TodoList from "./features/TodoList/TodoList";
 
 function App() {
   return (
