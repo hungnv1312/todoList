@@ -1,9 +1,9 @@
 import React from "react";
 import { Button } from "../../components/Button";
-import { updateTask, removeTask, toggleBulkAction } from "../../store/actions";
+import { bulkRemoveTasks } from "../../store/actions";
 import { useTodo } from "../../store/hooks";
 
-const BulkAction = ({ id }) => {
+const BulkAction = () => {
   const [, dispatch] = useTodo();
 
   return (
@@ -13,7 +13,7 @@ const BulkAction = ({ id }) => {
         <Button className="btn btn-blue">Done</Button>
         <Button
           className="btn btn-danger"
-          onClick={() => dispatch(removeTask(id))}
+          onClick={() => dispatch(bulkRemoveTasks())}
         >
           Remove
         </Button>

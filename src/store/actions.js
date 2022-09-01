@@ -16,7 +16,11 @@ export const removeTask = (id) => ({
   id,
 });
 
-export const toggleBulkAction = (payload) => ({
-  type: TYPE.BULK_ACTION,
-  payload,
+export const bulkRemoveTasks = () => ({
+  type: TYPE.BULK_REMOVE_TASKS,
+});
+
+export const completedTask = (id) => ({
+  type: TYPE.SET_COMPLETED,
+  id,
 });

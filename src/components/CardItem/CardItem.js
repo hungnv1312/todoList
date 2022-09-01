@@ -6,15 +6,14 @@ import "./style.css";
 
 const CardItem = ({
   title,
-  completed,
-  checkProps,
+  checkboxProps,
   detailAction,
   removeAction,
 }) => {
   return (
     <div className="card">
       <div className="card-head">
-        <CheckBox checked={completed} {...checkProps} />{" "}
+        <CheckBox {...checkboxProps} />{" "}
         <span>{title}</span>
       </div>
       <div className="card-action">

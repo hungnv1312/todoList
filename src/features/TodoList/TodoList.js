@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Button } from "../../components/Button";
 import CardItem from "../../components/CardItem/CardItem";
 import { DatePick } from "../../components/DatePick";
@@ -20,7 +20,12 @@ const TodoList = () => {
   const [searchTitle, setSearchTitle] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  console.log("bulkActionState>>", bulkActionState);
+  const bulkState = useMemo(
+    () => state.todoList.some((todo) => todo.completed == true),
+    [state]
+  );
+
+  console.log('bulkState>',bulkState);
 
   const handleSearch = (val) => {
     setSearchTitle(val);
@@ -34,7 +39,6 @@ const TodoList = () => {
     setSearchResults(results);
   }, [searchTitle, todoList]);
 
-
   return (
     <div className="task border-left">
       <h3 className="task-heading">TodoList</h3>
@@ -47,14 +51,16 @@ const TodoList = () => {
               onChange={(e) => handleSearch(e.target.value)}
             />
           </div>
-          {searchResults.sort( (a ,b) => a.dueDate - b.dueDate ).map(({ ...rest }, i) => {
-            return (
-              <React.Fragment key={i}>
-                <UpdateForm {...rest} />
-                {bulkActionState && <BulkAction {...rest} />}
-              </React.Fragment>
-            );
-          })}
+          {searchResults
+            .sort((a, b) => a.dueDate - b.dueDate)
+            .map(({ ...rest }, i) => {
+              return (
+                <React.Fragment key={i}>
+                  <UpdateForm {...rest} />
+                  {bulkState && <BulkAction {...rest} />}
+                </React.Fragment>
+              );
+            })}
         </div>
       </div>
     </div>

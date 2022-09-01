@@ -1,5 +1,13 @@
 import * as TYPE from "./contants";
 
+// {
+//     id: 1,
+//     title: "Do homework",
+//     completed: false,
+//     description: "Lorem lorem ipsum....",
+//     dueDate: 1662113303,
+//     piority: "Normal",
+//   },
 export const initState = {
   todoList: [
     {
@@ -10,8 +18,15 @@ export const initState = {
       dueDate: 1662113303,
       piority: "Normal",
     },
+    {
+      id: 2,
+      title: "Do AAAA",
+      completed: false,
+      description: "Lorem lorem ipsum....",
+      dueDate: 1662113303,
+      piority: "Normal",
+    },
   ],
-  bulkAction: false,
 };
 
 const todoReducer = (state, action) => {
@@ -39,15 +54,28 @@ const todoReducer = (state, action) => {
           return todo;
         }),
       };
+    case TYPE.SET_COMPLETED:
+      return {
+        ...state,
+        todoList: state.todoList.map((todo) => {
+          if (todo.id == action.id) {
+            return {
+              ...todo,
+              completed: !todo.completed,
+            };
+          }
+          return todo;
+        }),
+      };
     case TYPE.REMOVE_TASK:
       return {
         ...state,
         todoList: state.todoList.filter(({ id }) => id !== action.id),
       };
-    case TYPE.BULK_ACTION:
+    case TYPE.BULK_REMOVE_TASKS:
       return {
         ...state,
-        bulkAction: action.payload,
+        todoList: state.todoList.filter(({ completed }) => completed !== true),
       };
     default:
       return state;

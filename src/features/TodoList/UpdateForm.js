@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../../components/Button";
 import CardItem from "../../components/CardItem/CardItem";
 import { DatePick } from "../../components/DatePick";
@@ -6,7 +6,7 @@ import { Input } from "../../components/Input";
 import { Select } from "../../components/Select";
 import { Textarea } from "../../components/Textarea";
 import moment from "moment";
-import { updateTask, removeTask, toggleBulkAction } from "../../store/actions";
+import { updateTask, removeTask, completedTask } from "../../store/actions";
 import { useTodo } from "../../store/hooks";
 
 const UpdateForm = ({
@@ -26,15 +26,24 @@ const UpdateForm = ({
   const [uDueDate, setUDueDate] = useState(dueDate);
   const [uPiority, setUPiority] = useState(piority);
 
+  useEffect(() => {
+    setUTitle(title);
+    setUCompleted(completed);
+    setUDescription(description);
+    setUDueDate(dueDate);
+    setUPiority(piority);
+  }, [id, title, completed, dueDate, description, piority]);
+
   const toggleUpdate = () => {
     setOpenUpdate(!openUpdate);
   };
 
-  const handleCheckbox = () => {
-    dispatch(toggleBulkAction(!uCompleted));
-    setUCompleted(!uCompleted);
+  const handleCheckbox = (e) => {
+    // console.log(e.target.id);
+    dispatch(completedTask(e.target.id))
   };
-  console.log(uCompleted);
+
+//   console.log(uCompleted);
 
   const handleUpdate = (id) => {
     if (uTitle == "") {
@@ -61,9 +70,11 @@ const UpdateForm = ({
     <>
       <div className="form-control">
         <CardItem
-          completed={uCompleted}
-          checkProps={{
-            onClick: handleCheckbox,
+        //   completed={uCompleted}
+          checkboxProps={{
+            id: id,
+            checked: uCompleted,
+            onChange: handleCheckbox,
           }}
           title={title}
           removeAction={() => handleRemove(id)}
@@ -91,7 +102,7 @@ const UpdateForm = ({
                 <div className="box-item">
                   <DatePick
                     label="Due Date"
-                    selected={uDueDate ? moment(uDueDate, "X").toDate() : false}
+                    selected={moment(uDueDate, "X").toDate()}
                     onChange={(v) => setUDueDate(v)}
                   />
                 </div>
